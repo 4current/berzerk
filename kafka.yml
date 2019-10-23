@@ -1,0 +1,18 @@
+---
+- hosts: local
+  connection: local
+  tasks:
+  - name: create a tempdir to run in
+    tempfile:
+      state: directory
+    register: temporary_directory
+
+  - name: get confluent
+    git:
+      repo: https://github.com/confluentinc/examples
+      dest: "{{ temporary_directory.path }}"
+      version: 5.3.1-post
+  - name: Start it up
+    docker_compose:
+      project_src: examples/cp-all-in-one
+      build: yes
