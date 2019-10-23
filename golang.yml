@@ -1,0 +1,11 @@
+---
+- hosts: local
+  connection: local
+  become: yes
+  
+  tasks:
+  - name: get golang
+    unarchive:
+      remote_src: yes
+      src: https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz
+      dest: /usr/local
