@@ -1,11 +1,16 @@
 ---
 - hosts: local
   connection: local
-  become: yes
-  
+
   tasks:
   - name: get golang
     unarchive:
       remote_src: yes
       src: https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz
       dest: /usr/local
+    become: yes
+
+  - name: set path
+    lineinfile:
+      path: "/home/rich/.profile"
+      line: PATH=$PATH:/usr/local/go/bin

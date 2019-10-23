@@ -5,7 +5,6 @@
       - name: docker
     ansible_distribution: ubuntu
     ansible_distribution_release: bionic
-    #docker_apt_repository: "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
     docker_users:
       - "rich"
   roles:
