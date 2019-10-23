@@ -1,3 +1,3 @@
 #!/bin/bash
 set -x
-ansible-playbook -i ./hosts kafka.yml
+ansible-playbook -vv -i ./hosts kafka.yml
